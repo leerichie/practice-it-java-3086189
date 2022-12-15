@@ -3,12 +3,26 @@ package _03_02;
 public class GradingSystem {
 
   public boolean isAPass(int percentage) {
+    if(percentage >= 60){
+      return true;
+    } 
+    return false;
     // Return true if the percentage is higher than or equal to 60.
     // Otherwise return false.
-    return false;
   }
 
   public char getGrade(int percentage) {
+    if (percentage >= 90){
+      return 'A';
+    } else if (percentage >= 80 && percentage <= 89){
+      return 'B';
+    } else if (percentage >= 70 && percentage <= 79){
+      return 'C';
+    } else if (percentage >= 60 && percentage <= 69){
+      return 'D';
+    } else if ( percentage < 60){
+      return 'F';
+    }
     // If the percentage is 90 or above, return 'A'.
     // If it's 80-89, return 'B'.
     // If it's 70-79, return 'C'.
@@ -24,6 +38,13 @@ public class GradingSystem {
     // that says "The student is not allowed to retake this exam."
     // If percentage is 60 or higher, return a String that says "A retake is not
     // required."
+    if (percentage < 60 && allowedToRetake == true){
+      System.out.println("The student has been entered for a retake");
+    } else if (percentage < 60 && allowedToRetake == false){
+      System.out.println("The student is not allowed to retake this exam");
+    } else if (percentage >= 60){
+      System.out.println("A retake is not required");
+    }
     return "";
   }
 
